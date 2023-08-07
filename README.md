@@ -2,6 +2,8 @@
 
 This project is a responsive glassmorphic SignUp and SignIn form with several features and validations. It uses HTML, CSS (Tailwind CSS), and JavaScript.
 
+The form features smooth transitions, creating a seamless flow as users interact with the forms. From the animated login and sign-up pop-ups to the elegant success messages, the project enhances the user experience through subtle and visually appealing transitions.
+
 ## Features
 - Sign Up and Sign In Functionality
 - Password Visibility Toggler
