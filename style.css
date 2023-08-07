@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+
+    @keyframes anim {
+        100% {
+            width: 0;
+        }
+    }
+
+    @keyframes slideInTop {
+        from {
+            transform: translateY(-100%);
+        }
+
+        to {
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes slideOutTop {
+        from {
+            transform: translateY(0);
+        }
+
+        to {
+            transform: translateY(-100%);
+        }
+    }
+}
+
+.animateres {
+    animation: slideInTop 0.5s, slideOutTop 0.5s 3s;
+}
+
+.after\:anim::after {
+    animation: anim 3s linear forwards;
+}

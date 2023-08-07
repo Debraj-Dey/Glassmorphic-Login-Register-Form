@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SignUp-SignIn-Form</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://kit.fontawesome.com/d6a7a14b13.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body oncontextmenu="return false;" class="bg-cover bg-center bg-fixed" style="background-image: url(zero.jpg);">
+
+    <!-- Div for social media buttons -->
+    <div class="absolute right-3 top-2">
+        <div class="flex gap-3">
+            <a href="https://github.com/Debraj-Dey" target="_blank"><i class="fa-brands fa-github fa-xl hover:scale-105"
+                    style="color: #ffffff; " onmouseover="this.style.color='#a7a7a7'"
+                    onmouseout="this.style.color='#ffffff'"></i></a>
+            <a href="https://www.linkedin.com/in/debraj-dey/" target="_blank"><i
+                    class="fa-brands fa-linkedin fa-xl hover:scale-105" style="color: #ffffff;"
+                    onmouseover="this.style.color='#0080ff'" onmouseout="this.style.color='#ffffff'"></i></a>
+            <a href="https://www.instagram.com/__.d.e.b.r.a.j.__/" target="_blank"> <i
+                    class="fa-brands fa-instagram fa-xl hover:scale-105" style="color: #ffffff;"
+                    onmouseover="this.style.color='#d62976'" onmouseout="this.style.color='#ffffff'"></i></a>
+        </div>
+    </div>
+
+    <!-- Whole container DIV -->
+    <div class="w-full h-screen flex justify-center items-center">
+        <button
+            class="bg-white px-7 py-3 text-3xl font-bold mx-3 rounded-full shadow-2xl shadow-white hover:scale-110 hover:-translate-y-1 mybuttons opacity-100 transition  duration-[700ms]"
+            onclick="openLoginPopUp()">Sign In</button>
+        <button
+            class="bg-white px-7 py-3 text-3xl font-bold mx-3 rounded-full shadow-2xl shadow-white hover:scale-110 hover:-translate-y-1 mybuttons opacity-100 transition  duration-[700ms]"
+            onclick="openSignUpPopUp()">Sign
+            Up</button>
+
+
+        <!-- Login Form -->
+        <div id="loginForm"
+            class="login-form bg-gray-950/40  px-8 py-3 rounded-xl shadow-[0px_1px_60px_16px_#000000] shadow-black absolute scale-0 transform transition-transform duration-[700ms]">
+            <i onclick="closePopUp()"
+                class="fa-solid fa-square-xmark fa-lg absolute right-5 top-6 cursor-pointer hover:scale-105"
+                style="color: #9eabc2;"></i>
+            <form action="" class="flex flex-col gap-5 py-3 w-80">
+                <h1 class="text-center text-white font-bold text-4xl my-10">Log In</h1>
+                <div class="relative">
+                    <i class="fa-solid fa-user fa-lg absolute top-1/2 left left-2" style="color: #ffffff;"></i>
+                    <input type="text" id="username" placeholder="username" name="username"
+                        class="px-2 pl-10 py-1.5 rounded-2xl w-full outline-none placeholder:text-white border  border-white/20 bg-transparent/30 text-white">
+                </div>
+
+                <div class="relative">
+                    <i class="fa-solid fa-lock fa-lg absolute top-1/2 left left-2" style="color: #ffffff;"></i>
+                    <input type="password" id="passwordLoginForm" name="password" placeholder="password"
+                        autocomplete="off" class="px-2 pl-10 py-1.5 rounded-2xl w-full outline-none placeholder:text-white border  border-white/20 bg-transparent/30 text-white">
+                    <svg onclick="eyeButton()" xmlns="http://www.w3.org/2000/svg" id="toggler" width="16" height="16"
+                        fill="gray" class="bi bi-eye absolute top-1/2 right-3 -translate-y-1/2 cursor-pointer"
+                        viewBox="0 0 16 16">
+                        <path
+                            d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z" />
+                        <path
+                            d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z" />
+                    </svg>
+                </div>
+
+                <div class="flex gap-3">
+                    <input type="checkbox" name="check" id="check"
+                        class="w-4 h-auto text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800  dark:bg-gray-700 dark:border-gray-600">
+                    <label for="check" class="text-white text-lg hover:font-semibold cursor-pointer">Remember me</label>
+                </div>
+
+
+            </form>
+            <button
+                class="bg-[#3579aa] text-white mt-7 w-full mb-2 text-xl shadow-2xl shadow-black font-semibold rounded-full py-2 hover:scale-105 hover:-translate-y-2 transition duration-300"
+                onclick="loginMsg()">Sign
+                In
+            </button>
+            <div class="text-right py-2" onclick="displayForgotMsg()">
+                <span
+                    class="cursor-pointer font-semibold text-white underline text-base hover:font-bold transition ">Forgot
+                    password?
+                </span>
+            </div>
+        </div>
+
+        <!-- Sign Up form -->
+        <div id="signUpForm"
+            class="singup-form bg-gray-950/40 px-8 py-3 rounded-xl shadow-[0px_1px_60px_16px_#000000] shadow-black absolute scale-0 transform transition duration-[700ms]">
+
+            <form action="" class="flex flex-col gap-5 py-2 w-fit">
+                <i onclick="closePopUp()"
+                    class="fa-solid fa-square-xmark fa-lg absolute right-5 top-6 cursor-pointer hover:scale-105"
+                    style="color: #9eabc2;"></i>
+                <div class="my-5">
+                    <h1 class="text-center text-white font-bold text-4xl mb-2 ">Sign Up</h1>
+                    <p class="text-white font-semibold text-center">It's quick and easy</p>
+                </div>
+                <div class="flex gap-3">
+                    <div class="relative">
+                        <i class="fa-solid fa-user fa-lg absolute top-1/2 left left-2" style="color: #ffffff;"></i>
+                        <input type="text" name="firstname" id="" placeholder="First name"
+                            class="px-2 pl-10 py-1.5 rounded-2xl w-full outline-none  placeholder:text-white border border-white/20 bg-transparent/30 text-white">
+                    </div>
+                    <div class="relative">
+                        <i class="fa-solid fa-user fa-lg absolute top-1/2 left left-2" style="color: #ffffff;"></i>
+                        <input type="text" name="lastname" id="" placeholder="Last name"
+                            class="px-2 pl-10 py-1.5 rounded-2xl w-full outline-none  placeholder:text-white border border-white/20 bg-transparent/30 text-white">
+                    </div>
+                </div>
+                <div class="relative">
+                    <i class="fa-solid fa-envelope fa-lg absolute top-1/2 left-2" style="color: #ffffff;"></i>
+                    <input type="email" name="email" id="" placeholder="Email address"
+                        class="px-2 pl-10 py-1.5 rounded-2xl w-full outline-none  placeholder:text-white border border-white/20 bg-transparent/30 text-white">
+                </div>
+                <div class="flex gap-3">
+                    <img src="/flag.jpg" alt="" class="w-7 h-auto mt-2 ml-2 absolute"> <span
+                        class="absolute left-16 pl-1 mt-1 text-white">+91</span><input type="text"
+                        class="w-20 px-2 py-1.5 rounded-2xl outline-none  placeholder:text-white border  border-white/20 bg-transparent/30 text-white" readonly>
+                    <input type="tel" name="phonenumber" id="" maxlength="10" minlength="10" placeholder="123-456-7890"
+                        class="px-2 py-1.5 rounded-2xl w-full outline-none  placeholder:text-white border  border-white/20 bg-transparent/30 text-white">
+                </div>
+                <div>
+                    <div class="flex flex-1 gap-3">
+                        <div class="relative">
+                            <i class="fa-solid fa-lock fa-lg absolute top-1/2 left left-2" style="color: #ffffff;"></i>
+                            <input type="password" name="password" id="passwordSignUp" placeholder="Enter password"
+                                autocomplete="off" class="px-2 pl-10 py-1.5 rounded-2xl w-full outline-none  placeholder:text-white border border-white/20 bg-transparent/30 text-white">
+                            <svg onclick="eyeButton()" xmlns="http://www.w3.org/2000/svg" id="toggler" width="16"
+                                height="16" fill="gray"
+                                class="bi bi-eye absolute top-1/2 right-3 -translate-y-1/2 cursor-pointer"
+                                viewBox="0 0 16 16">
+                                <path
+                                    d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z" />
+                                <path
+                                    d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z" />
+                            </svg>
+                        </div>
+                        <input type="password" name="password" id="Confirmpassword" placeholder="Confirm password"
+                            autocomplete="off" class="px-2 py-1.5 rounded-2xl outline-none w-60  placeholder:text-white border  border-white/20 bg-transparent/30 text-white">
+                    </div>
+
+                    <span class="text-white text-center text-sm">Use 8 or more characters with mix of letters, numbers &
+                        symbols</span><br>
+                    <span id="passWarning"
+                        class="text-red-500 text-center text-base font-bold hidden animate-pulse">**Password &
+                        Confirm password does not match!!</span>
+                </div>
+                <div class="flex justify-between">
+                    <div class="flex flex-col">
+                        <label for="DOB" class="text-white font-semibold text-xl ml-1 pb-2">DOB</label>
+                        <input type="date" name="DOB" id="DOB" class="px-1 py-1 rounded-2xl w-full outline-none  placeholder:text-white border  border-white/20 bg-transparent/30 text-white">
+                    </div>
+                    <div class="flex flex-col text-white">
+                        <label for="Gender" class="font-semibold text-xl pb-2">Gender</label>
+                        <div class="flex gap-4 text-lg">
+                            <div>
+                                <input type="radio" name="Gender" id="Male" onchange="setLabelBold('Male')" required>
+                                <label for="Male" class="">Male</label>
+                            </div>
+                            <div>
+                                <input type="radio" name="Gender" id="Female" onchange="setLabelBold('Female')">
+                                <label for="Female" class="">Female</label>
+                            </div>
+                            <div>
+                                <input type="radio" name="Gender" id="Prefer_not_to_say"
+                                    onchange="setLabelBold('Prefer_not_to_say')">
+                                <label for="Prefer_not_to_say" class="">Prefer not to say</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <button
+                class="bg-[#3579aa] text-white mt-4 mb-3 text-xl shadow-2xl w-full shadow-black font-semibold rounded-full py-2 hover:scale-105 hover:-translate-y-2 transition duration-300"
+                onclick="displaySuccessMsg()">Register</button>
+        </div>
+
+
+        <!-- Login successfull Msg -->
+        <div id="loginSuccessfull"
+            class="absolute bg-white/80 text-center px-8 py-8 rounded-2xl shadow-[0px_1px_60px_16px_#000000] shadow-black top-0 scale-0 transition transform duration-150">
+            <i onclick="closeLoginMsg()"
+                class="fa-solid fa-square-xmark fa-lg absolute right-5 top-6 cursor-pointer hover:scale-105"
+                style="color: #9eabc2;"></i>
+            <svg xmlns="http://www.w3.org/2000/svg" class="mx-auto" height="5em"
+                viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                <style>
+                    svg {
+                        fill: #6ad24b
+                    }
+                </style>
+                <path
+                    d="M256 48a208 208 0 1 1 0 416 208 208 0 1 1 0-416zm0 464A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0l-111 111-47-47c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l64 64c9.4 9.4 24.6 9.4 33.9 0L369 209z" />
+            </svg>
+            <h1 class="font-bold text-4xl py-5">Login Successful</h1>
+            <div class="text-gl py-3 font-serif">
+                <p class="mb-2">You have successfully signed into your account</p>
+                <p>You can close this window and continue using the product</p>
+            </div>
+        </div>
+
+        <!-- Registration Successfull popup -->
+        <div id="SuccessfullMsg"
+            class="bg-white/80 flex flex-col gap-8  rounded-2xl px-10 pb-10 text-center shadow-[0px_1px_60px_16px_#000000] shadow-black absolute scale-0 transform transition duration-[700ms]">
+            <img src="tick.png" alt="tick" class="w-28 mx-auto -mt-14 drop-shadow-2xl shadow-black">
+            <h1 class="text-4xl font-bold">Awesome :)</h1>
+            <div class="text-xl font-serif mb-2 ">
+                <p class="">Your account have been successfully created.</p>
+                <p class="">Check your email for details.</p>
+            </div>
+            <button
+                class="bg-[#6ad24b] w-full text-white font-bold text-xl rounded-2xl py-2.5 shadow-2xl mb-5 shadow-black hover:scale-105 hover:-translate-y-2 transition duration-300"
+                onclick="continueBtn()">Continue</button>
+        </div>
+
+        <!-- Forget Password popup-->
+        <div id="forgotMsg"
+            class="bg-white/80 flex flex-col gap-7 rounded-xl px-8 pb-10 text-center shadow-[0px_1px_60px_16px_#000000] shadow-black absolute scale-0 transform transition duration-[700ms]">
+            <i onclick="closeLoginMsg()"
+                class="fa-solid fa-square-xmark fa-lg absolute right-5 top-6 cursor-pointer hover:scale-105"
+                style="color: #9eabc2;"></i>
+            <img src="reset-password.png" alt="" class="mx-auto w-28 -mt-14 drop-shadow-2xl shadow-black">
+            <div>
+                <h1 class=" text-3xl font-extrabold mb-1">Forgot</h1>
+                <h1 class="text-2xl font-bold">Your password?</h1>
+            </div>
+            <p class="font-serif text-xl font-semibold mb-2">Not to worry, we got you! Let's get a new password.</p>
+
+            <button
+                class="w-2/3 mx-auto bg-orange-500 text-white font-bold text-xl rounded-2xl py-2.5 shadow-2xl mb-3 shadow-black hover:scale-105 hover:-translate-y-2 transition "
+                onclick="resetBtn()">Reset password</button>
+
+        </div>
+    </div>
+
+    <!-- Reset link sent -->
+    <div id="resetLink"
+        class="absolute top-4 left-0 right-0 flex justify-center transform transition-transform hidden animateres">
+        <div
+            class="text-white bg-emerald-500/80 shadow-[0px_1px_60px_16px_#000000] border-2 border-solid border-green-700 px-4 py-4 rounded-lg">
+            <p class="text-lg font-medium">&#9989; We have e-mailed your password reset link!</p>
+        </div>
+
+    </div>
+
+    <!-- Alert -->
+    <div id="alert"
+        class="absolute top-4 left-0 right-0 flex justify-center transform transition-transform hidden animateres">
+        <div
+            class="text-white bg-red-100/90 shadow-[0px_1px_60px_16px_#000000] border-2 border-solid border-red-600 px-4 py-4 rounded-lg">
+            <p class="text-lg font-semibold text-red-600"><i class="fa-solid fa-circle-exclamation fa-beat fa-lg"
+                    style="color: #ff2424;"></i> Sorry, you can't view or copy source codes this way!</p>
+        </div>
+
+    </div>
+    <!-- Toast display -->
+    <div id="toastbox"
+        class="absolute bottom-8 right-7 flex items-end flex-col overflow-hidden transition-all duration-700 hidden p-5">
+        <div
+            class="toast relative bg-white/80 w-80 h-11 font-medium mt-4 py-8 shadow-2xl flex items-center rounded-md after[content:''] after:absolute after:rounded-md after:left-0 after:bottom-0 after:w-full after:h-1.5 after:bg-red-600 after:anim">
+            <p> <i class="fa-solid fa-triangle-exclamation fa-beat fa-xl text-red-600 mt-0 mx-4 "></i
+                    class="text-lg font-medium">Error, fill all
+                the required fields !!</p>
+        </div>
+    </div>
+
+    <!-- Created By -->
+    <div class="absolute bottom-0 left-0 right-0 text-center text-sm mb-1 text-white font-semibold">
+        &#169; Made by Debraj
+    </div>
+
+    <script src="main.js"></script>
+</body>
+
+</html>
